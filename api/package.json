@@ -7,5 +7,8 @@
     "test": "echo Running nonexistent API tests"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
 }
