@@ -10,8 +10,10 @@ jobs:
       with:
         ref: 'master'
     - name: Push to Test1 repo
+      env:
+        GITHUB_TOKEN: ${{ secrets.personal_github_token }}
       run: |
-        git remote add test https://github.com/watchpartyappmain/TestingRepo1
+        git remote add test https://github.com/watchpartyappmain:$GITHUB_TOKEN@github.com/TestingRepo1
         git config --global user.email "watchpartyappmain@gmail.com"
         git config --global user.name "watchpartyappmain"
         git checkout master
