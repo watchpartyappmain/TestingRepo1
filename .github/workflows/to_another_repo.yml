@@ -9,9 +9,9 @@ jobs:
     - name: repo-sync
       uses: wei/git-sync@v1
       env:
-        SOURCE_REPO: "TestingRepo"
+        SOURCE_REPO: "watchpartyappmain/TestingRepo"
         SOURCE_BRANCH: "master"
-        DESTINATION_REPO: "TestingRepo1"
+        DESTINATION_REPO: "watchpartyappmain/TestingRepo1"
         DESTINATION_BRANCH: "master"
       with:
         args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
