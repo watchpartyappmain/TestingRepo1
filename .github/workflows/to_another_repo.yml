@@ -7,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Push to Test1 repo
-      uses: johno/actions-push-subdirectories@master
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.personal_github_token }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
       with:
-        args: ./server watchpartyappmain TestingRepo1 
+        ref: 'master'
+    - name: Push to Test1 repo
+      run: |
+        git remote add test https://github.com/watchpartyappmain/TestingRepo1
+        git config --global user.email "watchpartyappmain@gmail.com"
+        git config --global user.name "watchpartyappmain"
+        git checkout master
+        git push -u test master
