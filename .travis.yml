@@ -7,4 +7,4 @@ rvm:
 jobs:
     include:
     - script: cd server && npm run test
-    - script: cd ../api && npm run test
+    - script: cd api && npm run test
