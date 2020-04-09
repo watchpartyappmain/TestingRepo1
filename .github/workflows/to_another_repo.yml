@@ -13,5 +13,6 @@ jobs:
         SOURCE_BRANCH: "master"
         DESTINATION_REPO: "watchpartyappmain/TestingRepo1"
         DESTINATION_BRANCH: "master"
+        GITHUB_TOKEN: ${{ secrets.personal_github_token }}
       with:
         args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
