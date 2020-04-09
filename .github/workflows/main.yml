@@ -1,0 +1,16 @@
+name: Push To Test1 Repo
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Push to Test1 repo
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.personal_github_token }}
+        branch: 'master'
+        directory: 'server'
+        repository: 'TestingRepo1'
