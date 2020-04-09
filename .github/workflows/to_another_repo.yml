@@ -9,12 +9,14 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: 'master'
-    - name: Push to Test1 repo
-      env:
-        GITHUB_TOKEN: ${{ secrets.personal_github_token }}
+    - name: Config git
       run: |
-        git remote add test git@github.com:watchpartyappmain:$GITHUB_TOKEN@github.com/TestingRepo1
-        git config --global user.email "watchpartyappmain@gmail.com"
-        git config --global user.name "watchpartyappmain"
-        git checkout master
-        git push -u test master
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.personal_github_token }}
+        branch: master
+        directory: server
+        repository: watchpartyappmain/TestingRepo1
