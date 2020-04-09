@@ -13,4 +13,4 @@ jobs:
         github_token: ${{ secrets.personal_github_token }}
         branch: 'master'
         directory: 'server'
-        repository: 'TestingRepo1'
+        repository: 'watchpartyappmain/TestingRepo1'
