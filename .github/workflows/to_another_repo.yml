@@ -13,4 +13,4 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.personal_github_token }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
       with:
-        args: server watchpartyappmain TestingRepo1 
+        args: ./server watchpartyappmain TestingRepo1 
