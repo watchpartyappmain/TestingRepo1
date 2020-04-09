@@ -3,20 +3,15 @@ on:
   push:
     branches: [ master ]
 jobs:
-  build:
+  repo-sync:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: repo-sync
+      uses: wei/git-sync@v1
+      env:
+        SOURCE_REPO: "TestingRepo"
+        SOURCE_BRANCH: "master"
+        DESTINATION_REPO: "TestingRepo1"
+        DESTINATION_BRANCH: "master"
       with:
-        ref: 'master'
-    - name: Config git
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.personal_github_token }}
-        branch: master
-        directory: server
-        repository: watchpartyappmain/TestingRepo1
+        args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
