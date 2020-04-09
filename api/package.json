@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "Running nonexistent API tests"
+    "test": "echo Running nonexistent API tests"
   },
   "author": "",
   "license": "ISC"
