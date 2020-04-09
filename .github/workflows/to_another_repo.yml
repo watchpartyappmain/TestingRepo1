@@ -10,8 +10,7 @@ jobs:
     - name: Push to Test1 repo
       uses: ad-m/github-push-action@master
       with:
-#         github_token: ${{ secrets.personal_github_token }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.personal_github_token }}
         branch: 'master'
         directory: 'server'
         repository: 'watchpartyappmain/TestingRepo1'
