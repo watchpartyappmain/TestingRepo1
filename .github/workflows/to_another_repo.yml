@@ -8,10 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Push to Test1 repo
-      uses: ad-m/github-push-action@v0.5.0
+      uses: johno/actions-push-subdirectories@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.personal_github_token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
       with:
-        github_token: ${{ secrets.personal_github_token }}
-        GITHUB_TOKEN: ${{ secrets.personal_github_token }}
-        branch: 'master'
-        directory: 'server'
-        repository: 'watchpartyappmain/TestingRepo1'
+        args: server watchpartyappmain TestingRepo1 
