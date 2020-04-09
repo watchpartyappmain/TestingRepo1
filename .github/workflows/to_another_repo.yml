@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: repo-sync
-      uses: wei/git-sync@v1
+      uses: repo-sync/github-sync@v2
       env:
         SOURCE_REPO: "watchpartyappmain/TestingRepo"
         SOURCE_BRANCH: "master"
@@ -15,4 +15,8 @@ jobs:
         DESTINATION_BRANCH: "master"
         GITHUB_TOKEN: ${{ secrets.personal_github_token }}
       with:
-        args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
+        source_repo: "watchpartyappmain/TestingRepo1"
+        source_branch: "master"
+        destination_branch: "master"
+        github_token: ${{ secrets.personal_github_token }}
+        access_token: ${{ secrets.personal_github_token }}
