@@ -13,7 +13,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.personal_github_token }}
       run: |
-        git remote add test https://github.com/watchpartyappmain:$GITHUB_TOKEN@github.com/TestingRepo1
+        git remote add test git@github.com:watchpartyappmain:$GITHUB_TOKEN@github.com/TestingRepo1
         git config --global user.email "watchpartyappmain@gmail.com"
         git config --global user.name "watchpartyappmain"
         git checkout master
