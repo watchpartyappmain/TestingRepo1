@@ -13,9 +13,9 @@ jobs:
       run: |
         git remote add testing https://github.com/watchpartyappmain/TestingRepo1.git
         git fetch --all
+        git checkout -b sandbox testing/master
         git config --global user.email "watchpartyappmain@gmail.com"
         git config --global user.name "watchpartyappmain"
-        git checkout master testing/master
         git merge master --allow-unrelated-histories
         git fetch --unshallow origin
     - name: Push changes
