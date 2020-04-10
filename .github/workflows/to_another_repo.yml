@@ -19,8 +19,15 @@ jobs:
         git merge master --allow-unrelated-histories
         git fetch --unshallow origin
     - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.personal_github_token }}
-        repository: watchpartyappmain/TestingRepo1
-        force: true
+      env:
+        INPUT_GITHUB_TOKEN: ${{ secrets.personal_github_token }}
+        REPOSITORY: 'watchpartyappmain/TestingRepo1'
+        INPUT_BRANCH: 'master'
+      run: |
+        remote_repo="https://watchpartymainapp:${INPUT_GITHUB_TOKEN}@github.com/${REPOSITORY}.git"
+        git push "${remote_repo}" HEAD:${INPUT_BRANCH} --follow-tags --force;
+#       uses: ad-m/github-push-action@master
+#       with:
+#         github_token: ${{ secrets.personal_github_token }}
+#         repository: watchpartyappmain/TestingRepo1
+#         force: true
