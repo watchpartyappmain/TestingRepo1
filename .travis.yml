@@ -1,0 +1,26 @@
+sudo: false
+language: node_js
+
+node_js:
+-'13'
+branches:
+    only:
+    - master
+cache:
+    directories:
+    - node_modules
+
+before_install:
+- npm update
+
+install:
+- npm install
+
+rvm:
+- 2.0.0
+- 2.1.6
+
+jobs:
+    include:
+    - script: cd server && npm run test
+    - script: cd api && npm run test

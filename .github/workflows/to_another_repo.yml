@@ -1,0 +1,26 @@
+name: Push To Test1 Repo
+on:
+  push:
+    branches: [ master ]
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Get Testing1 Remote Set Up
+      run: |
+        git remote add testing https://github.com/watchpartyappmain/TestingRepo1.git
+        git fetch --all
+        git checkout -b sandbox testing/master
+        git config --global user.email "watchpartyappmain@gmail.com"
+        git config --global user.name "watchpartyappmain"
+        git merge master --allow-unrelated-histories
+        git fetch --unshallow origin
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.personal_github_token }}
+        repository: watchpartyappmain/TestingRepo1
+        force: true
