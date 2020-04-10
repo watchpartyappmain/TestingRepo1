@@ -6,6 +6,9 @@ jobs:
   repo-sync:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
     - name: Get Testing1 Remote Set Up
       run: |
         git remote add testing https://github.com/watchpartyappmain/TestingRepo1.git
