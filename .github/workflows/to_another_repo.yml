@@ -16,7 +16,7 @@ jobs:
         git checkout -b sandbox testing/master
         git config --global user.email "watchpartyappmain@gmail.com"
         git config --global user.name "watchpartyappmain"
-        git merge -s master --allow-unrelated-histories
+        git merge -s ours master --allow-unrelated-histories
         git fetch --unshallow origin
     - name: Push changes
       env:
